@@ -15,7 +15,7 @@ namespace StatePattern.Enemy
         protected EnemyState currentState;
         protected NavMeshAgent Agent => enemyView.Agent;
         public EnemyScriptableObject Data => enemyScriptableObject;
-        protected Quaternion Rotation => enemyView.transform.rotation;
+        public Quaternion Rotation => enemyView.transform.rotation;
         protected Vector3 Position => enemyView.transform.position;
 
 

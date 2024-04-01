@@ -9,7 +9,7 @@ namespace StatePattern.Enemy.States
             throw new System.NotImplementedException();
         }
 
-        public void OnStateStay()
+        public void Update()
         {
             throw new System.NotImplementedException();
         }

@@ -6,7 +6,7 @@ namespace StatePattern.Enemy.States
 
         public void OnStateEnter();
 
-        public void OnStateStay();
+        public void Update();
 
         public void OnStateExit();
     }

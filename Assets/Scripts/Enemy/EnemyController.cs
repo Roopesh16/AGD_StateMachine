@@ -14,7 +14,7 @@ namespace StatePattern.Enemy
         protected int currentHealth;
         protected EnemyState currentState;
         protected NavMeshAgent Agent => enemyView.Agent;
-        protected EnemyScriptableObject Data => enemyScriptableObject;
+        public EnemyScriptableObject Data => enemyScriptableObject;
         protected Quaternion Rotation => enemyView.transform.rotation;
         protected Vector3 Position => enemyView.transform.position;
 

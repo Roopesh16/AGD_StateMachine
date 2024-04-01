@@ -6,6 +6,7 @@ namespace StatePattern.Enemy
     public class OnePunchManStateMachine
     {
         private OnePunchManController owner;
+        private IState currentState;
         private Dictionary<OnePunchManStates, IState> states = new();
 
         public OnePunchManStateMachine(OnePunchManController owner)
@@ -29,5 +30,18 @@ namespace StatePattern.Enemy
                 state.Owner = owner;
             }
         }
+
+        private void ChangeState(IState newState)
+        {
+            currentState?.OnStateExit();
+            currentState = newState;
+            currentState?.OnStateEnter();
+        }
+
+        public void Update() => currentState?.Update();
+
+        public void ChangeState(OnePunchManStates newState) => ChangeState(states[newState]);
+
+
     }
 }

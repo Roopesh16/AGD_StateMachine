@@ -3,9 +3,9 @@ namespace StatePattern.Enemy
     public class PatrolState : IState
     {
         public EnemyController Owner { get; set; }
-        private OnePunchManStateMachine stateMachine;
+        private IStateMachine stateMachine;
 
-        public PatrolState(OnePunchManStateMachine stateMachine) => this.stateMachine = stateMachine;
+        public PatrolState(IStateMachine stateMachine) => this.stateMachine = stateMachine;
         public void OnStateEnter()
         {
             throw new System.NotImplementedException();

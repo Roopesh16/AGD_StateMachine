@@ -1,4 +1,4 @@
-using StatePattern.StateMachine;
+using StateMachine;
 using System.Collections.Generic;
 
 namespace StatePattern.Enemy

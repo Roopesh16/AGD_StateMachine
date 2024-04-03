@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using StateMachine;
 using StatePattern.Enemy;
+using StatePattern.StateMachine;
 
 namespace StatePattern.Utilities
 {

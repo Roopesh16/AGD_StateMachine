@@ -1,6 +1,8 @@
+using System;
 using StatePattern.StateMachine;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace StatePattern.Enemy
 {
@@ -19,12 +21,12 @@ namespace StatePattern.Enemy
 
         public void Update()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void OnStateExit()
         {
-            throw new System.NotImplementedException();
+            Owner.Agent.isStopped = false;
         }
 
         private void TeleportToRandomPosition() => Owner.Agent.Warp(GetRandomNavMeshPoint());

@@ -24,24 +24,5 @@ namespace StatePattern.Enemy
             states.Add(States.ROTATING, new RotatingState<OnePunchManController>(this));
             states.Add(States.SHOOTING, new ShootingState<OnePunchManController>(this));
         }
-
-        private void SetOwner()
-        {
-            foreach(IState state in states.Values)
-            {
-                state.Owner = Owner;
-            }
-        }
-
-        public void Update() => currentState?.Update();
-
-        protected void ChangeState(IState newState)
-        {
-            currentState?.OnStateExit();
-            currentState = newState;
-            currentState?.OnStateEnter();
-        }
-
-        public void ChangeState(States newState) => ChangeState(states[newState]);
     }
 }

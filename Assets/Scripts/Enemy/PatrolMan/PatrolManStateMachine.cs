@@ -25,24 +25,5 @@ namespace StatePattern.Enemy
             states.Add(States.CHASING, new ChasingState<PatrolManController>(this));
             states.Add(States.SHOOTING, new ShootingState<PatrolManController>(this));
         }
-
-        private void SetOwner()
-        {
-            foreach (IState state in states.Values)
-            {
-                state.Owner = Owner;
-            }
-        }
-
-        public void Update() => currentState?.Update();
-
-        protected void ChangeState(IState newState)
-        {
-            currentState?.OnStateExit();
-            currentState = newState;
-            currentState?.OnStateEnter();
-        }
-
-        public void ChangeState(States newState) => ChangeState(states[newState]);
     }
 }

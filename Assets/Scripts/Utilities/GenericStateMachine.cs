@@ -19,9 +19,9 @@ namespace StatePattern.Utilities
 
         protected void ChangeState(IState newState)
         {
-            currentState?.OnStateEnter();
-            currentState = newState;
             currentState?.OnStateExit();
+            currentState = newState;
+            currentState?.OnStateEnter();
         }
 
         protected void SetOwner()

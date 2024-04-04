@@ -4,12 +4,12 @@ using UnityEngine.AI;
 
 namespace StatePattern.Enemy
 {
-    public class HitmanState<T> : IState where T : EnemyController
+    public class TeleportingState<T> : IState where T : EnemyController
     {
         public EnemyController Owner { get; set; }
         private GenericStateMachine<T> stateMachine;
 
-        public HitmanState(GenericStateMachine<T> stateMachine) => this.stateMachine = stateMachine;
+        public TeleportingState(GenericStateMachine<T> stateMachine) => this.stateMachine = stateMachine;
         
         public void OnStateEnter()
         {

@@ -21,7 +21,7 @@ namespace StatePattern.Enemy.HitMan
             if(currentState == EnemyState.DEACTIVE)
                 return;
             
-            base.UpdateEnemy();
+            stateMachine.Update();
         }
 
         public override void PlayerEnteredRange(PlayerController targetToSet)

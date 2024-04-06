@@ -1,4 +1,5 @@
 using StatePattern.Enemy.CloneMan;
+using StatePattern.Main;
 using StatePattern.StateMachine;
 using UnityEngine;
 
@@ -23,15 +24,12 @@ namespace StatePattern.Enemy
         }
 
         public void OnStateExit()
-        {
-            throw new System.NotImplementedException();
-        }
+        { }
 
         private void SpawnClones()
         {
-            EnemyController enemy1 = new EnemyController(Owner.Data);
-            EnemyController enemy2 = new EnemyController(Owner.Data);
-            stateMachine.ChangeState(States.TELEPORTING);
+            GameService.Instance.EnemyService.CreateClonedEnemies(Owner.Data,(CloneManController)Owner);
+            GameService.Instance.EnemyService.CreateClonedEnemies(Owner.Data,(CloneManController)Owner);
         }
     }
 }

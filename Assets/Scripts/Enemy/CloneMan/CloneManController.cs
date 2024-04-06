@@ -1,11 +1,14 @@
 using StatePattern.Player;
 using StatePattern.StateMachine;
+using UnityEngine;
 
 namespace StatePattern.Enemy.CloneMan
 {
     public class CloneManController :  EnemyController
     {
         private CloneManStateMachine stateMachine;
+        private int cloneCount = 0;
+        public const int MaxClone = 2;
         
         public CloneManController(EnemyScriptableObject enemyScriptableObject) : base(enemyScriptableObject)
         {
@@ -31,17 +34,24 @@ namespace StatePattern.Enemy.CloneMan
         }
 
         public override void PlayerExitedRange() => stateMachine.ChangeState(States.IDLE);
-
-        public override void Shoot()
-        {
-            base.Shoot();
-            stateMachine.ChangeState(States.TELEPORTING);
-        }
-
+        
         public override void Die()
         {
-            stateMachine.ChangeState(States.CLONING);
+            UpdateCloneCount();
             base.Die();
         }
+
+        public void UpdateCloneCount()
+        {
+            if (cloneCount != MaxClone)
+            {
+                cloneCount++;
+                stateMachine.ChangeState(States.CLONING);
+            }
+        }
+
+        public int GetCloneCount() => cloneCount;
+        
+        
     }
 }

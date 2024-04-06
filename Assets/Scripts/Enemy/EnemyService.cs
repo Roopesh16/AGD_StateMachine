@@ -3,6 +3,7 @@ using StatePattern.Main;
 using StatePattern.Sound;
 using StatePattern.UI;
 using System.Collections.Generic;
+using StatePattern.Enemy.CloneMan;
 using StatePattern.Enemy.HitMan;
 using UnityEngine;
 
@@ -64,12 +65,21 @@ namespace StatePattern.Enemy
                 case EnemyType.Hitman:
                     enemy = new HitmanController(enemyScriptableObject);
                     break;
+                case EnemyType.Robot:
+                    enemy = new CloneManController(enemyScriptableObject);
+                    break;
                 default:
                     enemy = new EnemyController(enemyScriptableObject);
                     break;
             }
 
             return enemy;
+        }
+
+        public void CreateClonedEnemies(EnemyScriptableObject enemyScriptableObject,CloneManController Owner)
+        {
+            SubCloneController enemy = new SubCloneController(enemyScriptableObject,Owner);
+            activeEnemies.Add(enemy);
         }
 
         public void EnemyDied(EnemyController deadEnemy)

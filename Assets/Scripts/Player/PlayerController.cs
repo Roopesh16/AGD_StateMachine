@@ -27,6 +27,8 @@ namespace StatePattern.Player
             InitializeVariables();
         }
 
+        public void DestroyPlayer() => Object.Destroy(playerView);
+
         private void InitializeView()
         {
             playerView = Object.Instantiate(playerScriptableObject.PlayerPrefab);

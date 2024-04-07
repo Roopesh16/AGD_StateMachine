@@ -18,7 +18,6 @@ namespace Coins
         private void Start()
         {
             playerPosition = GameService.Instance.PlayerService.GetPlayer().Position;
-            transform.DORotate(transform.up, 2f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
         }
 
         private void Update()

@@ -39,7 +39,6 @@ namespace StatePattern.Enemy
             }
 
             SetEnemyCount();
-            UnsubscribeToEvents();
         }
 
         private void SetEnemyCount()
@@ -83,6 +82,7 @@ namespace StatePattern.Enemy
             UIService.UpdateEnemyCount(activeEnemies.Count, spawnedEnemies);
             if (PlayerWon()) 
             {
+                GameService.Instance.EventService.OnLevelEnded.InvokeEvent();
                 SoundService.PlaySoundEffects(Sound.SoundType.GAME_WON);
                 UIService.GameWon();
             }

@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: a489afba77ded7d42989ff99e08bc359, type: 2}
+--- !u!114 &165046305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3093090592263553667, guid: de25749838c0a5a438314548ca5c239f, type: 3}
+  m_PrefabInstance: {fileID: 559994230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &559994230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +145,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 624815449, guid: de25749838c0a5a438314548ca5c239f, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 165046305}
     - target: {fileID: 2713401147876776565, guid: de25749838c0a5a438314548ca5c239f, type: 3}
       propertyPath: m_IsActive
       value: 0

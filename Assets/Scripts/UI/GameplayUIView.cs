@@ -21,7 +21,7 @@ namespace StatePattern.UI
         public void UpdateEnemyCounterText(string enemyCounter) => enemyCounterText.SetText(enemyCounter);
 
         public void UpdatePlayerHealthUI(float helathRatio) => playerHealth.transform.localScale = new Vector3(helathRatio, 1, 1);
-        public void UpdateCoinText(int coins) => coinText.text = coins.ToString();
+        public void UpdateCoinText(string coins) => coinText.SetText(coins);
 
         public void ToggleKillOverlay(bool value) => EnemyKillOverlay.SetActive(value);
     }

@@ -17,6 +17,7 @@ namespace StatePattern.Enemy
         public EnemyScriptableObject Data => enemyScriptableObject;
         public Quaternion Rotation => enemyView.transform.rotation;
         public Vector3 Position => enemyView.transform.position;
+        public int NextWaypointIndex;
 
 
         public EnemyController(EnemyScriptableObject enemyScriptableObject)
@@ -77,6 +78,13 @@ namespace StatePattern.Enemy
         public virtual void PlayerExitedRange() { }
 
         public virtual void UpdateEnemy() { }
+
+        public void SetNextWaypoint(int index)
+        {
+            if (index == Data.PatrollingPoints.Count + 1)
+                index = 0;
+            NextWaypointIndex = index;   
+        }
     }
 
     public enum EnemyState

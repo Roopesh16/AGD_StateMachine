@@ -81,8 +81,9 @@ namespace StatePattern.Enemy
 
         public void SetNextWaypoint(int index)
         {
-            if (index == Data.PatrollingPoints.Count + 1)
+            if (index == Data.PatrollingPoints.Count)
                 index = 0;
+            
             NextWaypointIndex = index;   
         }
     }

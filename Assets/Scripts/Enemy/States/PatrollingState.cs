@@ -1,6 +1,4 @@
 ﻿using StatePattern.StateMachine;
-using System.Collections;
-using StatePattern.Enemy.Titanis;
 using UnityEngine;
 
 namespace StatePattern.Enemy
@@ -28,11 +26,14 @@ namespace StatePattern.Enemy
                 if (typeof(T) == typeof(TitanisController))
                 {
                     int random = Random.Range(0,100);
-
+                
                     if (random <= 70)
                         stateMachine.ChangeState(States.IDLE);
                     else
+                    {
+                        Owner.SetNextWaypoint(currentPatrollingIndex+1);
                         stateMachine.ChangeState(States.RAMPAGE);
+                    }
                 }
                 else
                     stateMachine.ChangeState(States.IDLE);

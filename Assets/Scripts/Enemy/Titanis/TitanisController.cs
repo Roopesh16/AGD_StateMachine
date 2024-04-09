@@ -26,7 +26,7 @@ namespace StatePattern.Enemy.Titanis
 
         public override void PlayerEnteredRange(PlayerController targetToSet)
         {
-            base.PlayerEnteredRange();
+            base.PlayerEnteredRange(targetToSet);
             stateMachine.ChangeState(States.ROARING);
         }
 
@@ -34,6 +34,5 @@ namespace StatePattern.Enemy.Titanis
         {
             stateMachine.ChangeState(States.IDLE);
         }
-        
     }
 }

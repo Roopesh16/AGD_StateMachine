@@ -1,12 +1,10 @@
 using StatePattern.StateMachine;
 
-namespace StatePattern.Enemy.Titanis
+namespace StatePattern.Enemy
 {
     public class TitanisStateMachine : GenericStateMachine<TitanisController>
     {
-        private TitanisController Owner;
-        
-        public TitanisStateMachine(TitanisController Owner) : base(Owner)
+       public TitanisStateMachine(TitanisController Owner) : base(Owner)
         {
             this.Owner = Owner;
             CreateStates();

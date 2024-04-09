@@ -1,7 +1,7 @@
 using StatePattern.Player;
 using StatePattern.StateMachine;
 
-namespace StatePattern.Enemy.Titanis
+namespace StatePattern.Enemy
 {
     public class TitanisController : EnemyController
     {
@@ -21,7 +21,7 @@ namespace StatePattern.Enemy.Titanis
             if(currentState == EnemyState.DEACTIVE)
                 return;
             
-            stateMachine?.Update();
+            stateMachine.Update();
         }
 
         public override void PlayerEnteredRange(PlayerController targetToSet)

@@ -18,7 +18,7 @@ namespace StatePattern.Enemy
             States.Add(StateMachine.States.RAMPAGE,new RampageState<TitanisController>(this));
             States.Add(StateMachine.States.ROARING,new RoaringState<TitanisController>(this));
             States.Add(StateMachine.States.CHARGE,new ChargeState<TitanisController>(this));
-            States.Add(StateMachine.States.ATTACK,new AttackState<TitanisController>(this));
+            States.Add(StateMachine.States.DEFENSE,new DefenseState<TitanisController>(this));
         }
     }
 }

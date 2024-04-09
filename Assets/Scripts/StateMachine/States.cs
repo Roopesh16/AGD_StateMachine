@@ -12,6 +12,6 @@ namespace StatePattern.StateMachine
         RAMPAGE,
         ROARING,
         CHARGE,
-        ATTACK
+        DEFENSE
     }
 }

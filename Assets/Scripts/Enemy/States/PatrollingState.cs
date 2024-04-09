@@ -1,5 +1,6 @@
 ﻿using StatePattern.StateMachine;
 using System.Collections;
+using StatePattern.Enemy.Titanis;
 using UnityEngine;
 
 namespace StatePattern.Enemy
@@ -22,8 +23,20 @@ namespace StatePattern.Enemy
 
         public void Update()
         {
-            if(ReachedDestination())
-                stateMachine.ChangeState(States.IDLE);
+            if (ReachedDestination())
+            {
+                if (typeof(T) == typeof(TitanisController))
+                {
+                    int random = Random.Range(0,100);
+
+                    if (random <= 70)
+                        stateMachine.ChangeState(States.IDLE);
+                    else
+                        stateMachine.ChangeState(States.RAMPAGE);
+                }
+                else
+                    stateMachine.ChangeState(States.IDLE);
+            }
         }
 
         public void OnStateExit() { }

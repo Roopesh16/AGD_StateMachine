@@ -30,3 +30,7 @@ MonoBehaviour:
   - {x: 7.5, y: 1.5, z: -10}
   PlayerStoppingDistance: 3
   CloneCount: 2
+  ObstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  ObstacleDistance: 0.5

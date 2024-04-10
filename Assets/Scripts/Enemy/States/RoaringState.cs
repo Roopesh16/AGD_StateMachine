@@ -49,9 +49,14 @@ namespace StatePattern.Enemy
 
         private void Shake(GameObject obstacle)
         {
+            Vector3 origScale = obstacle.transform.localScale;
+            Vector3 origPos = obstacle.transform.localPosition;
             
             obstacle.transform.DOShakePosition(ShakeDuration, ShakeStrength).SetEase(Ease.InCirc);
             obstacle.transform.DOShakeScale(ShakeDuration, ShakeStrength).SetEase(Ease.InCirc);
+            
+            obstacle.transform.localScale = origScale;
+            obstacle.transform.localPosition = origPos;
         }
 
         private void SlowdownPlayer() => GameService.Instance.PlayerService.GetPlayer().MoveSpeed /= 4;

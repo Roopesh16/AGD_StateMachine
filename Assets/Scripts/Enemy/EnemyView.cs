@@ -21,6 +21,7 @@ namespace StatePattern.Enemy
         [SerializeField] private GameObject bloodStain;
         [SerializeField] private int maxSpawnCoins = 5;
         [SerializeField] private CoinView coinPrefab;
+        [SerializeField] private ParticleSystem attackVFX;
 
         private GameObject spawnedStain;
 
@@ -103,6 +104,8 @@ namespace StatePattern.Enemy
         }
 
         public void DestroyBloodStain() => Destroy(spawnedStain);
+
+        public void PlayVFX() => attackVFX.Play();
     }
 
     [System.Serializable]

@@ -79,6 +79,8 @@ namespace StatePattern.Enemy
         public virtual void PlayerExitedRange() { }
 
         public virtual void UpdateEnemy() { }
+        
+        public virtual void PlayAttackVFX() => enemyView.PlayVFX();
 
         public void SetNextWaypoint(int index)
         {

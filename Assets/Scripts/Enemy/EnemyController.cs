@@ -19,11 +19,13 @@ namespace StatePattern.Enemy
         public Quaternion Rotation => enemyView.transform.rotation;
         public Vector3 Position => enemyView.transform.position;
         public int NextWaypointIndex;
+        public int EnemyHealth { get; private set; }
 
 
         public EnemyController(EnemyScriptableObject enemyScriptableObject)
         {
             this.enemyScriptableObject = enemyScriptableObject;
+            EnemyHealth = this.enemyScriptableObject.MaximumHealth;
             InitializeView();
             InitializeVariables();
         }
@@ -79,8 +81,18 @@ namespace StatePattern.Enemy
         public virtual void PlayerExitedRange() { }
 
         public virtual void UpdateEnemy() { }
+
+        public virtual void TakeDamage(int playerDamage)
+        {
+            enemyView.PlayVFX();
+            if (EnemyHealth < Data.DefenseHealth)
+            {
+                playerDamage /= 4;
+            }
+                EnemyHealth -= playerDamage;
+        }
         
-        public virtual void PlayAttackVFX() => enemyView.PlayVFX();
+        public void ReducePlayerDamage(){}
 
         public void SetNextWaypoint(int index)
         {

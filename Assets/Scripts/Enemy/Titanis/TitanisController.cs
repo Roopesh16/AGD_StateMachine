@@ -34,5 +34,13 @@ namespace StatePattern.Enemy
         {
             stateMachine.ChangeState(States.IDLE);
         }
+
+        public override void TakeDamage(int playerDamage)
+        {
+            base.TakeDamage(playerDamage);
+            stateMachine.ChangeState(States.DEFENSE);
+        }
+
+        private void ChangeColor(EnemyColorType type) => enemyView.ChangeColor(type);
     }
 }

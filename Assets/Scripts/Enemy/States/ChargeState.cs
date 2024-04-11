@@ -32,7 +32,7 @@ namespace StatePattern.Enemy
 
             if (RemainingDistance())
             {
-                 Owner.PlayAttackVFX();
+                 Owner.TakeDamage(5);
             }
         }
 

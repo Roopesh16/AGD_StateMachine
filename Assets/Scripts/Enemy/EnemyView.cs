@@ -119,6 +119,7 @@ namespace StatePattern.Enemy
     {
         Default,
         Vulnerable,
-        Clone
+        Clone,
+        Defense
     }
 }

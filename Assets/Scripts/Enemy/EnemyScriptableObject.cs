@@ -32,5 +32,6 @@ namespace StatePattern.Enemy
 
         public LayerMask ObstacleLayer;
         public float ObstacleDistance;
+        public int DefenseHealth;
     }
 }

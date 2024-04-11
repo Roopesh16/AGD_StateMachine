@@ -231,6 +231,8 @@ MonoBehaviour:
     Color: {r: 1, g: 1, b: 1, a: 1}
   - Type: 1
     Color: {r: 1, g: 0, b: 0, a: 1}
+  - Type: 3
+    Color: {r: 0.29622638, g: 1, b: 0.35184294, a: 1}
   bloodStain: {fileID: 2531642671473160316, guid: efa600927a40a5547a583186d52428d4, type: 3}
   maxSpawnCoins: 5
   coinPrefab: {fileID: 7561452385218145364, guid: d535ee0ac2ee8e04aa9de1837a217e2f, type: 3}

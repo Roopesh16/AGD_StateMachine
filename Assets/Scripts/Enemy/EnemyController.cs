@@ -13,15 +13,19 @@ namespace StatePattern.Enemy
 
         protected int currentHealth;
         protected EnemyState currentState;
-        protected NavMeshAgent Agent => enemyView.Agent;
-        protected EnemyScriptableObject Data => enemyScriptableObject;
-        protected Quaternion Rotation => enemyView.transform.rotation;
-        protected Vector3 Position => enemyView.transform.position;
+        public NavMeshAgent Agent => enemyView.Agent;
+        public EnemyScriptableObject Data => enemyScriptableObject;
+        public Transform Transform => enemyView.transform;
+        public Quaternion Rotation => enemyView.transform.rotation;
+        public Vector3 Position => enemyView.transform.position;
+        public int NextWaypointIndex;
+        public int EnemyHealth { get; private set; }
 
 
         public EnemyController(EnemyScriptableObject enemyScriptableObject)
         {
             this.enemyScriptableObject = enemyScriptableObject;
+            EnemyHealth = this.enemyScriptableObject.MaximumHealth;
             InitializeView();
             InitializeVariables();
         }
@@ -61,10 +65,9 @@ namespace StatePattern.Enemy
 
         public void SetRotation(Quaternion desiredRotation) => enemyView.transform.rotation = desiredRotation;
 
-        public void ToggleEnemyColor(bool value)=>  enemyView.ToggleColor(value);
-        
+        public void ToggleEnemyColor(EnemyColorType colorToSet) => enemyView.ChangeColor(colorToSet);
 
-        public void Shoot()
+        public virtual void Shoot()
         {
             enemyView.PlayShootingEffect();
             GameService.Instance.SoundService.PlaySoundEffects(Sound.SoundType.ENEMY_SHOOT);
@@ -78,6 +81,26 @@ namespace StatePattern.Enemy
         public virtual void PlayerExitedRange() { }
 
         public virtual void UpdateEnemy() { }
+
+        public virtual void TakeDamage(int playerDamage)
+        {
+            enemyView.PlayVFX();
+            if (EnemyHealth < Data.DefenseHealth)
+            {
+                playerDamage /= 4;
+            }
+                EnemyHealth -= playerDamage;
+        }
+        
+        public void ReducePlayerDamage(){}
+
+        public void SetNextWaypoint(int index)
+        {
+            if (index == Data.PatrollingPoints.Count)
+                index = 0;
+            
+            NextWaypointIndex = index;   
+        }
     }
 
     public enum EnemyState

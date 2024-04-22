@@ -1,6 +1,7 @@
 using StatePattern.Enemy.Bullet;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace StatePattern.Enemy
@@ -26,5 +27,11 @@ namespace StatePattern.Enemy
 
         public List<Vector3> PatrollingPoints;
         public float PlayerStoppingDistance;
+
+        public int CloneCount;
+
+        public LayerMask ObstacleLayer;
+        public float ObstacleDistance;
+        public int DefenseHealth;
     }
 }
